@@ -2,9 +2,9 @@
 var generateBtn = document.querySelector("#generate");
 var userPassword 
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var lowerCase
-var symbols
-var numbers
+var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var symbols = ["!","@","#","$","%","^","&","*","(",")","<",">","{","}","[","]","/","?"];
+var numbers = ["1","2","3","4","5","6","7","8","9"];
 var questions = [
     {Q1: "Would you like your secure password to contain an Uppercase character?"},
     {Q2: "Would you like your secure password to contain a Lowercase character?"},
@@ -42,9 +42,27 @@ function writePassword() {
 
     var lowerCase = confirm("Would you like your secure password to contain a Lowercase character?");
 
+    if (lowerCase) {
+        for (var i = 0; i < lowerCase.length; i++){
+            passOptions.push(lowerCase);
+        }
+    }
+
     var specialSymbol = confirm("Would you like your secure password to contain a special character?");
 
+    if (specialSymbol) {
+        for (var i = 0; i < specialSymbol.length; i++){
+            passOptions.push(specialSymbol);
+        }
+    }
+
     var numberCharacter = confirm("Would you like your secure password to contain a number?");
+
+    if (numberCharacter) {
+        for (var i = 0; i < numberCharacter.length; i++){
+            passOptions.push(numberCharacter);
+        }
+    }
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
