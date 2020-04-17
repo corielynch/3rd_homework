@@ -12,7 +12,7 @@ var questions = [
     {Q5: "How many characters would you like your password to be between 8-128 characters?"}
 ];
 
-var passOptions = [];
+var passOptions = []
 
 // Write password to the #password input
 function writePassword() {
@@ -32,13 +32,15 @@ function writePassword() {
         alert("Password has to be less than 128 characters.");
     }
 
-// Questions about password preference
+// User questions password preference
     var upperCase = confirm("Would you like your secure password to contain Uppercase characters?");
 
 // For loops to push preferences to new variable, passOptions
     if (upperCase) {
         for (var i = 0; i < upperCase.length; i++){
+            var randomUpper = Math.floor(Math.random() * 26) + 1;
             passOptions.push(upperCase);
+            
         }
     }
 
@@ -46,6 +48,7 @@ function writePassword() {
 
     if (lowerCase) {
         for (var i = 0; i < lowerCase.length; i++){
+            var randomLower = Math.floor(Math.random() * 26) + 1;
             passOptions.push(lowerCase);
         }
     }
@@ -54,6 +57,7 @@ function writePassword() {
 
     if (specialSymbol) {
         for (var i = 0; i < specialSymbol.length; i++){
+            var randomSymbol = Math.floor(Math.random() * 18) + 1;
             passOptions.push(specialSymbol);
         }
     }
@@ -62,13 +66,14 @@ function writePassword() {
 
     if (numberCharacter) {
         for (var i = 0; i < numberCharacter.length; i++){
+            var randomNum = Math.floor(Math.random() * 10) + 1;
             passOptions.push(numberCharacter);
         }
     }
 
 
 // Create password based on user criteria
-  var password = generatePassword();
+  var password = generatePassword(passOptions);
   var passOptions = document.querySelector("#password");
 
   passOptions.value = password;
