@@ -2,8 +2,8 @@
 var generateBtn = document.querySelector("#generate");
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var symbols = ["!","@","#","$","%","^","&","*","(",")","<",">","{","}","[","]","/","?"];
-var numbers = ["1","2","3","4","5","6","7","8","9"];
+var specialSymbol = ["!","@","#","$","%","^","&","*","(",")","<",">","{","}","[","]","/","?"];
+var numberCharacter = ["1","2","3","4","5","6","7","8","9"];
 var questions = [
     {Q1: "Would you like your secure password to contain an Uppercase character?"},
     {Q2: "Would you like your secure password to contain a Lowercase character?"},
@@ -12,7 +12,7 @@ var questions = [
     {Q5: "How many characters would you like your password to be between 8-128 characters?"}
 ];
 
-var passOptions = []
+var passOptions = [upperCase, lowerCase, specialSymbol, numberCharacter];
 
 // Write password to the #password input
 function writePassword() {
@@ -39,7 +39,7 @@ function writePassword() {
     if (upperCase) {
         for (var i = 0; i < upperCase.length; i++){
             var randomUpper = Math.floor(Math.random() * 26) + 1;
-            passOptions.push(upperCase);
+            passOptions.push(upperCase, randomUpper);
             
         }
     }
@@ -49,7 +49,7 @@ function writePassword() {
     if (lowerCase) {
         for (var i = 0; i < lowerCase.length; i++){
             var randomLower = Math.floor(Math.random() * 26) + 1;
-            passOptions.push(lowerCase);
+            passOptions.push(lowerCase, randomLower);
         }
     }
 
@@ -58,7 +58,7 @@ function writePassword() {
     if (specialSymbol) {
         for (var i = 0; i < specialSymbol.length; i++){
             var randomSymbol = Math.floor(Math.random() * 18) + 1;
-            passOptions.push(specialSymbol);
+            passOptions.push(specialSymbol, randomSymbol);
         }
     }
 
@@ -67,16 +67,19 @@ function writePassword() {
     if (numberCharacter) {
         for (var i = 0; i < numberCharacter.length; i++){
             var randomNum = Math.floor(Math.random() * 10) + 1;
-            passOptions.push(numberCharacter);
+            passOptions.push(numberCharacter, randomNum);
         }
     }
+
+    confirm("Click 'OK' for a new, secure, amazing password.");
+        passOptions.value= password
+        object.addEventListener("click", passOptions);
+
 
 
 // Create password based on user criteria
   var password = generatePassword(passOptions);
   var passOptions = document.querySelector("#password");
-
-  passOptions.value = password;
 
 }
 
