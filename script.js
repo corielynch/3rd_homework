@@ -4,6 +4,10 @@ var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var specialSymbol = ["!","@","#","$","%","^","&","*","(",")","<",">","{","}","[","]","/","?"];
 var numberCharacter = ["1","2","3","4","5","6","7","8","9"];
+
+var passOptions = [upperCase, lowerCase, specialSymbol, numberCharacter];
+
+// User questions in confirm popups.
 var questions = [
     {Q1: "Would you like your secure password to contain an Uppercase character?"},
     {Q2: "Would you like your secure password to contain a Lowercase character?"},
@@ -12,7 +16,7 @@ var questions = [
     {Q5: "How many characters would you like your password to be between 8-128 characters?"}
 ];
 
-var passOptions = [upperCase, lowerCase, specialSymbol, numberCharacter];
+
 
 // Write password to the #password input
 function writePassword() {
@@ -38,14 +42,13 @@ function writePassword() {
 // User questions password preference
     var upperCaseChoice = confirm("Would you like your secure password to contain Uppercase characters?");
 
-// For loops to push preferences to new variable, passOptions
+// If statements to push preferences to new variable, passwordFinalChoice
     if (upperCaseChoice) {
             var randomUpper = Math.floor(Math.random() * 26) + 1;
             passwordFinalChoice.push(upperCase[randomUpper]);
     for (i = 0; i < randomUpper.length; i++) {
             }
-        
-        console.log("This is where the Upper's added", passwordFinalChoice);
+    
     }
 
     var lowerCaseChoice = confirm("Would you like your secure password to contain Lowercase characters?");
@@ -53,8 +56,6 @@ function writePassword() {
     if (lowerCaseChoice) {
             var randomLower = Math.floor(Math.random() * 26) + 1;
             passwordFinalChoice.push(lowerCase[randomLower]);
-
-        console.log("This is where the Lower's added", passwordFinalChoice);
         
     }
 
@@ -64,20 +65,16 @@ function writePassword() {
             var randomSymbol = Math.floor(Math.random() * 18) + 1;
             passwordFinalChoice.push(specialSymbol[randomSymbol]);
 
-        console.log("This is where the Symbol's added", passwordFinalChoice);
     }
 
     var numberCharacterChoice = confirm("Would you like your secure password to contain numbers?");
 
     if (numberCharacterChoice) {
-            var randomNum = Math.floor(Math.random() * 10) + 1;
+            var randomNum = Math.floor(Math.random() * 9) + 1;
             passwordFinalChoice.push(numberCharacter[randomNum]);
-
-        console.log("This is where the Numbers's added", passwordFinalChoice);
     }
 
-  for (i = 0; i < length; i++) {
-  }
+
 
 
 
@@ -85,6 +82,10 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
   passwordText.value = passwordFinalChoice;
 
+}
+
+// For loops to determine length of password based on user input
+for (i = 0; i < length; i++) {
 }
 
 
