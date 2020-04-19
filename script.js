@@ -17,6 +17,9 @@ var passOptions = [upperCase, lowerCase, specialSymbol, numberCharacter];
 // Write password to the #password input
 function writePassword() {
     var length = parseInt(prompt("How many characters would you like your password to be between 8-128 characters?"));
+    
+    var passwordFinalChoice = []
+
 
 // If statements to ensure password is within parameters.
     if (isNaN(length) === true){
@@ -33,53 +36,54 @@ function writePassword() {
     }
 
 // User questions password preference
-    var upperCase = confirm("Would you like your secure password to contain Uppercase characters?");
+    var upperCaseChoice = confirm("Would you like your secure password to contain Uppercase characters?");
 
 // For loops to push preferences to new variable, passOptions
-    if (upperCase) {
-        for (var i = 0; i < upperCase.length; i++){
+    if (upperCaseChoice) {
             var randomUpper = Math.floor(Math.random() * 26) + 1;
-            passOptions.push(upperCase, randomUpper);
-            
-        }
+            passwordFinalChoice.push(upperCase[randomUpper]);
+    for (i = 0; i < randomUpper.length; i++) {
+            }
+        
+        console.log("This is where the Upper's added", passwordFinalChoice);
     }
 
-    var lowerCase = confirm("Would you like your secure password to contain Lowercase characters?");
+    var lowerCaseChoice = confirm("Would you like your secure password to contain Lowercase characters?");
 
-    if (lowerCase) {
-        for (var i = 0; i < lowerCase.length; i++){
+    if (lowerCaseChoice) {
             var randomLower = Math.floor(Math.random() * 26) + 1;
-            passOptions.push(lowerCase, randomLower);
-        }
+            passwordFinalChoice.push(lowerCase[randomLower]);
+
+        console.log("This is where the Lower's added", passwordFinalChoice);
+        
     }
 
-    var specialSymbol = confirm("Would you like your secure password to contain special characters?");
+    var specialSymbolChoice = confirm("Would you like your secure password to contain special characters?");
 
-    if (specialSymbol) {
-        for (var i = 0; i < specialSymbol.length; i++){
+    if (specialSymbolChoice) {
             var randomSymbol = Math.floor(Math.random() * 18) + 1;
-            passOptions.push(specialSymbol, randomSymbol);
-        }
+            passwordFinalChoice.push(specialSymbol[randomSymbol]);
+
+        console.log("This is where the Symbol's added", passwordFinalChoice);
     }
 
-    var numberCharacter = confirm("Would you like your secure password to contain numbers?");
+    var numberCharacterChoice = confirm("Would you like your secure password to contain numbers?");
 
-    if (numberCharacter) {
-        for (var i = 0; i < numberCharacter.length; i++){
+    if (numberCharacterChoice) {
             var randomNum = Math.floor(Math.random() * 10) + 1;
-            passOptions.push(numberCharacter, randomNum);
-        }
+            passwordFinalChoice.push(numberCharacter[randomNum]);
+
+        console.log("This is where the Numbers's added", passwordFinalChoice);
     }
 
-    confirm("Click 'OK' for a new, secure, amazing password.");
-        passOptions.value= password
-        object.addEventListener("click", passOptions);
+  for (i = 0; i < length; i++) {
+  }
 
 
 
 // Create password based on user criteria
-  var password = generatePassword(passOptions);
-  var passOptions = document.querySelector("#password");
+  var passwordText = document.querySelector('#password');
+  passwordText.value = passwordFinalChoice;
 
 }
 
